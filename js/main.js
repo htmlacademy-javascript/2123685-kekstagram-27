@@ -18,23 +18,21 @@
 // Случайное число в диапазоне
 
 function getRandomIntInclusive(min, max) {
+  console.log(typeof min);
+  if (min < 0 || max < 0 || typeof min !== 'number' || typeof max !== 'number') {
+    return NaN;
+  }
+  if (min > max) {
+    [min, max] = [max, min];
+  }
   min = Math.ceil(min);
   max = Math.floor(max);
-  if (min >= 0 && max > min) {
-    console.log(Math.floor(Math.random() * (max - min + 1)) + min);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  } else if (min < 0 && max > min) {
-    console.log('Min не должно быть меньше 0');
-  }
-  else if (max < min && min >= 0) {
-    console.log('Max не должно быть меньше min');
-  }
-  else if (min < 0 && max < min) {
-    console.log('Min не должно быть меньше 0 / Max не должно быть меньше min');
-  }
+
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+
 }
 
-getRandomIntInclusive(0, 10);
+console.log(getRandomIntInclusive());
 
 
 // Длина строки
@@ -44,10 +42,10 @@ let maxLength = 6;
 
 function stringLength(anyString, maxLength) {
   if (anyString.length <= maxLength) {
-    console.log(true);
-  } else {
-    console.log(false);
+    return true;
   }
+  return false;
+
 }
 
 stringLength('1234567', maxLength);
