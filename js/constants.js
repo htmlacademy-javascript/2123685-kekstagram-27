@@ -1,0 +1,2 @@
+const PHOTOS_AMOUNT = 25;
+export {PHOTOS_AMOUNT};

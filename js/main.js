@@ -1,4 +1,7 @@
-import {PHOTOS_AMOUNT} from './data.js';
+import {PHOTOS_AMOUNT} from './constants.js';
 import {getSetPhotoObjects} from './data.js';
+import {renderThumbs} from './render.js';
 
-console.log(getSetPhotoObjects(PHOTOS_AMOUNT));
+//Возвращает массив объектов:
+const data = getSetPhotoObjects(PHOTOS_AMOUNT);
+renderThumbs(data);
