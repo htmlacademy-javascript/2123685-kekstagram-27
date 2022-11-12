@@ -38,9 +38,6 @@ function checkStringLength(string, length) {
   return string.length <= length;
 }
 
-console.log(checkStringLength("123", 2));
-
-
 // ____________________Собирает массив от 1 до 25
 
 // function getNumbersArray() {

@@ -1,6 +1,6 @@
 import {getRandomIntInclusive} from './util.js';
 
-const PHOTOS_AMOUNT = 25;
+
 const PHOTOS_DESCRIPTIONS = [
   'Кот ест сметану',
   'Кот играет',
@@ -24,7 +24,7 @@ const COMMENTS_AUTHORS = [
   'Иван Иванов',
 ];
 
-const COMMENTS_AMOUNT = PHOTOS_AMOUNT * 2;
+const COMMENTS_AMOUNT = 50;
 
 const LIKES_AMOUNT_MIN = 15;
 const LIKES_AMOUNT_MAX = 200;
@@ -39,10 +39,10 @@ function getDescription(descriptionArray, randomNumber) {
   return descriptionArray[randomNumber];
 }
 
-const getPhotoObject = (idNumber) => {
+const getPhotoObject = (idNumber, photosAmount) => {
   return {
     id: idNumber,
-    url: `photos/${getRandomIntInclusive(1, PHOTOS_AMOUNT)}.jpg`,
+    url: `photos/${getRandomIntInclusive(1, photosAmount)}.jpg`,
     description: getDescription(PHOTOS_DESCRIPTIONS, getRandomIntInclusive(0, PHOTOS_DESCRIPTIONS.length - 1)),
     likes: getRandomIntInclusive(LIKES_AMOUNT_MIN, LIKES_AMOUNT_MAX),
     comments: getSetCommentsObjects(getRandomIntInclusive(1, COMMENTS_AMOUNT)),
@@ -69,7 +69,7 @@ const getSetCommentsObjects = (commentsAmount) => {
 const getSetPhotoObjects = (photosAmount) => {
   const photosArray = [];
   for (let i = 0; i <= photosAmount - 1; i++) {
-    photosArray.push(getPhotoObject(i+1));
+    photosArray.push(getPhotoObject(i+1, photosAmount));
   }
   return photosArray;
 }
@@ -77,5 +77,5 @@ const getSetPhotoObjects = (photosAmount) => {
 
 // console.log(getSetPhotoObjects(PHOTOS_AMOUNT));
 
-export {PHOTOS_AMOUNT};
+
 export {getSetPhotoObjects};
