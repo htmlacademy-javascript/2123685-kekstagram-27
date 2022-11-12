@@ -18,13 +18,6 @@ const renderBigImage = (url) => {
   bigPictureImage.src = url;
 }
 
-/* <li class="social__comment">
-              <img class="social__picture" src="img/avatar-4.svg" alt="Аватар комментатора фотографии" width="35" height="35">
-              <p class="social__text">Мега фото! Просто обалдеть. Как вам так удалось?</p>
-            </li>
-            */
-
-
 const clearComments = () => {
   bigPictureComments.innerHTML = '';
 }
