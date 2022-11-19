@@ -39,3 +39,4 @@ const renderThumbs = (cards) => {
 
 
 export { renderThumbs };
+
