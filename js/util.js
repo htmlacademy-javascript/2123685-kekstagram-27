@@ -1,6 +1,5 @@
 const TIME_OUT_DELAY = 500;
 const ALERT_SHOW_TIME = 5000;
-const maxLength = 6;
 
 const debounce = (callback, timeoutDelay = TIME_OUT_DELAY) => {
   let timeoutId;

@@ -91,7 +91,7 @@ function onEscapeKeydownHandler (evt) {
     evt.preventDefault();
     hideModal();
   }
-};
+}
 
 bigPictureModalClose.addEventListener('click', onCloseModalHandler);
 
