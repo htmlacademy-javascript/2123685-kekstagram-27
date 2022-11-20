@@ -1,4 +1,15 @@
-// ________________Случайное число в диапазоне
+const TIME_OUT_DELAY = 500;
+const ALERT_SHOW_TIME = 5000;
+const maxLength = 6;
+
+const debounce = (callback, timeoutDelay = TIME_OUT_DELAY) => {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
 
 function getRandomIntInclusive(min, max) {
 
@@ -12,45 +23,31 @@ function getRandomIntInclusive(min, max) {
   max = Math.floor(max);
 
   return Math.floor(Math.random() * (max - min + 1)) + min;
-
 }
-
-
-// ____________________Длина строки
-
-let anyString;
-let maxLength = 6;
-
-function stringLength(anyString, maxLength) {
-  if (anyString.length <= maxLength) {
-    return true;
-  }
-  return false;
-
-}
-
-stringLength('1234567', maxLength);
-
-
-// ________________Длина строки короткая
 
 function checkStringLength(string, length) {
   return string.length <= length;
 }
 
-// ____________________Собирает массив от 1 до 25
+const showAlert = (message) => {
+  const alertContainer = document.createElement('div');
+  alertContainer.style.zIndex = '100';
+  alertContainer.style.position = 'absolute';
+  alertContainer.style.left = '0';
+  alertContainer.style.top = '0';
+  alertContainer.style.right = '0';
+  alertContainer.style.padding = '10px 3px';
+  alertContainer.style.fontSize = '30px';
+  alertContainer.style.textAlign = 'center';
+  alertContainer.style.backgroundColor = 'red';
 
-// function getNumbersArray() {
-//   const numbersArray = [];
-//   let sum = 0;
-//   for (let i = 0; i <= PHOTOS_AMOUNT - 1; i++) {
-//     sum++;
-//     numbersArray.push(sum);
-//   }
-//   return numbersArray;
-// }
+  alertContainer.textContent = message;
 
-// console.log(getNumbersArray());
+  document.body.append(alertContainer);
 
+  setTimeout(() => {
+    alertContainer.remove();
+  }, ALERT_SHOW_TIME);
+};
 
-export {getRandomIntInclusive};
+export { getRandomIntInclusive, checkStringLength, debounce, showAlert };
