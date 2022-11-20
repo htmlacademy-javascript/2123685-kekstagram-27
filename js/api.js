@@ -8,15 +8,15 @@ const getData = (onSuccess, onFail) => {
         response.json()
           .then((data) => {
             onSuccess(data);
-          })
+          });
       } else {
         onFail();
       }
     })
     .catch(() => {
       onFail();
-    })
-}
+    });
+};
 
 const postData = (onSuccess, onFail, payload) => {
   fetch(POST_USER_PHOTO, {
@@ -29,7 +29,7 @@ const postData = (onSuccess, onFail, payload) => {
       } else {
         onFail();
       }
-    })
-}
+    });
+};
 
 export { getData, postData };

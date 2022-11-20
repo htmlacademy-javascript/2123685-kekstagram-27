@@ -1,4 +1,4 @@
-import { renderModalPicture } from "./modal-picture.js";
+import { renderModalPicture } from './modal-picture.js';
 
 const cardListElement = document.querySelector('.pictures');
 const cardTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -6,7 +6,7 @@ const cardTemplate = document.querySelector('#picture').content.querySelector('.
 const renderThumbs = (cards) => {
   const cardListFragment = document.createDocumentFragment();
 
-  cards.forEach(function (thumb) {
+  cards.forEach((thumb) => {
     const pictureElement = cardTemplate.cloneNode(true);
     pictureElement.querySelector('.picture__img').src = thumb.url;
     pictureElement.querySelector('.picture__comments').textContent = thumb.comments.length;

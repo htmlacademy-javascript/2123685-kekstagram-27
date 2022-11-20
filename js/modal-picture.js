@@ -21,11 +21,11 @@ const hideModal = () => {
 
 const renderBigImage = (url) => {
   bigPictureImage.src = url;
-}
+};
 
 const clearComments = () => {
   bigPictureComments.innerHTML = '';
-}
+};
 
 const renderStatisticComments = (showed, total) => {
   totalComments.textContent = `${showed} из ${total} комментариев`;
@@ -33,13 +33,13 @@ const renderStatisticComments = (showed, total) => {
 
 const renderComments = (comments) => {
   const commentListFragment = document.createDocumentFragment();
-  comments.forEach(function (comment) {
-    const commentElement = bigPictureComment.cloneNode(true); //клонирует карточку
+  comments.forEach((comment) => {
+    const commentElement = bigPictureComment.cloneNode(true);
     commentElement.querySelector('.social__picture').src = comment.avatar;
     commentElement.querySelector('.social__picture').alt = comment.name;
     commentElement.querySelector('.social__text').textContent = comment.message;
     commentListFragment.appendChild(commentElement);
-  })
+  });
   bigPictureComments.append(commentListFragment);
 };
 
@@ -74,24 +74,24 @@ const loadButtonHandler = () => {
 
 const renderLikes = (likes) => {
   bigPictureModal.querySelector('.likes-count').textContent = likes;
-}
+};
 
 const renderDescription = (description) => {
   bigPictureModal.querySelector('.social__caption').textContent = description;
-}
+};
 
 const onCloseModalHandler = () => {
   hideModal();
   document.removeEventListener('keydown', onEscapeKeydownHandler);
   loadButton.removeEventListener('click', loadButtonHandler);
-}
+};
 
-const onEscapeKeydownHandler = (evt) => {
+function onEscapeKeydownHandler (evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     hideModal();
   }
-}
+};
 
 bigPictureModalClose.addEventListener('click', onCloseModalHandler);
 

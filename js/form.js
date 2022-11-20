@@ -10,7 +10,7 @@ const imagePreview = document.querySelector('.img-upload__preview img');
 const closeButton = document.querySelector('.img-upload__cancel');
 const uploadUserForm = document.querySelector('.img-upload__form');
 const hashtagsField = document.querySelector('.text__hashtags');
-const descriptionField =  document.querySelector('.text__description');
+const descriptionField = document.querySelector('.text__description');
 const imageField = document.querySelector('.img-upload__input');
 
 const escapeHandler = (evt) => {
@@ -18,7 +18,7 @@ const escapeHandler = (evt) => {
     evt.preventDefault();
     closeUploadModal();
   }
-}
+};
 
 const submitHandler = (evt) => {
   evt.preventDefault();
@@ -35,7 +35,7 @@ const submitHandler = (evt) => {
       new FormData(uploadUserForm)
     );
   }
-}
+};
 
 const clearForm = () => {
   hashtagsField.value = '';
@@ -52,9 +52,9 @@ const openUploadModal = () => {
   imagePreview.src = URL.createObjectURL(fileImage);
   document.addEventListener('keydown', escapeHandler);
   uploadUserForm.addEventListener('submit', submitHandler);
-}
+};
 
-const closeUploadModal = () => {
+function closeUploadModal () {
   clearForm();
   scaleDestroy();
   uploadModal.classList.add('hidden');
@@ -67,11 +67,11 @@ closeButton.addEventListener('click', closeUploadModal);
 
 const uploadFileChangeHandler = () => {
   openUploadModal();
-}
+};
 
 const uploadForm = () => {
   createSlider();
   controlUpload.addEventListener('change', uploadFileChangeHandler);
-}
+};
 
-export { uploadForm }
+export { uploadForm };

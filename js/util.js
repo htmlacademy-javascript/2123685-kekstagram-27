@@ -1,5 +1,6 @@
 const TIME_OUT_DELAY = 500;
 const ALERT_SHOW_TIME = 5000;
+const maxLength = 6;
 
 const debounce = (callback, timeoutDelay = TIME_OUT_DELAY) => {
   let timeoutId;
@@ -22,19 +23,7 @@ function getRandomIntInclusive(min, max) {
   max = Math.floor(max);
 
   return Math.floor(Math.random() * (max - min + 1)) + min;
-
 }
-
-let maxLength = 6;
-
-function stringLength(anyString, maxLength) {
-  if (anyString.length <= maxLength) {
-    return true;
-  }
-  return false;
-}
-
-stringLength('1234567', maxLength);
 
 function checkStringLength(string, length) {
   return string.length <= length;
