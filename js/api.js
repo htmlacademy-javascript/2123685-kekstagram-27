@@ -1,8 +1,7 @@
 const GET_USER_PHOTOS = 'https://27.javascript.pages.academy/kekstagram/data';
-const POST_USER_PHOTO = 'https://27.javascript.pages.academy/kekstagram1';
+const POST_USER_PHOTO = 'https://27.javascript.pages.academy/kekstagram';
 
-//чтобы взять с сервера данные и нарисовать карточки
-const getData = (onSuccess) => {
+const getData = (onSuccess, onFail) => {
   fetch(GET_USER_PHOTOS)
     .then((response) => {
       if (response.ok) {
@@ -11,11 +10,11 @@ const getData = (onSuccess) => {
             onSuccess(data);
           })
       } else {
-        console.log('Неверный сервер else')
+        onFail();
       }
     })
     .catch(() => {
-      console.log('Неверный сервер');
+      onFail();
     })
 }
 

@@ -1,11 +1,15 @@
-// import {PHOTOS_AMOUNT} from './constants.js';
-// import {getSetPhotoObjects} from './data.js';
-import {renderThumbs} from './render.js';
 import {uploadForm} from './form.js';
+import { filters } from './filters.js';
 import {getData} from './api.js';
+import { showAlert } from './util.js';
 
-//Возвращает массив объектов:
-// const data = getSetPhotoObjects(PHOTOS_AMOUNT);
-// renderThumbs(data);
-uploadForm();
-getData(renderThumbs);
+
+getData(
+    (data) => {
+      uploadForm();
+      filters(data);
+    },
+    () => {
+      showAlert('Упс! Данные не подгрузились :( Попробуйте позже!');
+    }
+  );

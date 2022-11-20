@@ -28,6 +28,9 @@ const renderSuccessModal = () => {
 const renderErrorModal = () => {
   const errorMessageElement = errorMessageTemplate.cloneNode(true);
   document.body.append(errorMessageElement);
+  errorMessageElement.querySelector('.error__button').addEventListener('click', () => {closeModalSuccessHandler(errorMessageElement)});
+  document.addEventListener('keydown', (evt) => {escapeHandler(errorMessageElement, evt)})
+  errorMessageElement.addEventListener('click', (evt) => {outsideClickHandler(evt, errorMessageElement)})
 }
 
 export {renderSuccessModal, renderErrorModal};
