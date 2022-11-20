@@ -29,7 +29,7 @@ const renderSuccessModal = () => {
   successMessageElement.addEventListener('click', (evt) => {
     outsideClickHandler(evt, successMessageElement);
   });
-}
+};
 
 const renderErrorModal = () => {
   const errorMessageElement = errorMessageTemplate.cloneNode(true);
